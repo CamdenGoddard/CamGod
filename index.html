@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Camden Goddard</title>
+<meta name="description" content="Camden Goddard: computer science student at Valparaiso University and Division I distance runner. Projects, resume and contact.">
+<meta property="og:title" content="Camden Goddard">
+<meta property="og:description" content="CS student at Valparaiso University building things for the browser.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<canvas id="dots" aria-hidden="true"></canvas>
+
+<header class="nav">
+  <a class="nav-name" href="#top">Camden Goddard</a>
+  <nav aria-label="Sections">
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="assets/Camden_Goddard_Resume.pdf">Resume</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <h1>Camden<br>Goddard</h1>
+    <p class="lede">I study computer science at Valparaiso University and run Division I cross country and track. I like building things people can open in a browser and use right away.</p>
+    <ul class="links">
+      <li><a class="btn" href="assets/Camden_Goddard_Resume.pdf">Download resume</a></li>
+      <li><a href="https://github.com/CamdenGoddard">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/camgodd">LinkedIn</a></li>
+      <li><a href="mailto:cgoddardoh@gmail.com">cgoddardoh@gmail.com</a></li>
+    </ul>
+
+    <aside id="activity" class="activity" data-state="loading" aria-live="polite">
+      <h2 class="activity-title"><span class="pulse" aria-hidden="true"></span>Currently working on</h2>
+      <a id="activityRepo" class="activity-repo" href="https://github.com/CamdenGoddard/Paint">Paint, a Java image editor</a>
+      <a id="activityMessage" class="activity-message" href="https://github.com/CamdenGoddard/Paint">Building it sprint by sprint for CS 250</a>
+      <p id="activityMeta" class="activity-meta">Loading my latest commit…</p>
+    </aside>
+  </section>
+
+  <section id="projects" class="section">
+    <h2 class="section-title">Projects</h2>
+
+    <article class="project">
+      <a class="project-media" href="https://wavevisualizer.com" aria-label="Open Wave">
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/wave-poster.jpg">
+          <source src="assets/wave.webm" type="video/webm">
+          <source src="assets/wave.mp4" type="video/mp4">
+        </video>
+      </a>
+      <div class="project-body">
+        <h3>Wave</h3>
+        <p class="project-kicker">3D audio visualizer</p>
+        <p>A rippling surface that reacts to music in real time, inspired by the PlayStation 3's music visualizer. Each frame I run an FFT on the audio, split it into bass, mids and treble, and use those bands to shape the mesh, detect beats and drive the bloom lighting. It plays a demo track generated in the browser, your own files, Spotify or the microphone.</p>
+        <p class="stack">Three.js, Web Audio API, Spotify Web Playback SDK, OAuth 2.0 with PKCE, Cloudflare Workers</p>
+        <p class="project-links"><a href="https://wavevisualizer.com">Open Wave</a><a href="https://github.com/CamdenGoddard/WaveVisualizer">Code</a></p>
+      </div>
+    </article>
+
+    <article class="project">
+      <a class="project-media" href="https://thefirstwords.netlify.app" aria-label="Open Firstwords">
+        <img src="assets/firstwords.jpg" alt="Firstwords setup screen with a role field and a Start practice button" loading="lazy" width="1100" height="700">
+      </a>
+      <div class="project-body">
+        <h3>Firstwords</h3>
+        <p class="project-kicker">AI interview practice</p>
+        <p>Pick a role and get three realistic interview questions, then specific feedback on each answer. The browser never touches the API key: a serverless function builds the prompts, caps every input and rate-limits each visitor, so the endpoint can't be used as a free proxy.</p>
+        <p class="stack">JavaScript, Netlify Functions (Node.js), Anthropic API</p>
+        <p class="project-links"><a href="https://thefirstwords.netlify.app">Try Firstwords</a><a href="https://github.com/CamdenGoddard/firstwords">Code</a></p>
+      </div>
+    </article>
+
+    <article class="project project-text">
+      <ol class="sprints" aria-label="Paint releases">
+        <li><span class="v">v0.1</span> Open and save images, menu bar</li>
+        <li><span class="v">v0.2</span> Drawing, colors, line width, PNG/JPG/BMP</li>
+        <li><span class="v">v0.3</span> Tabs, seven more tools, keyboard shortcuts</li>
+        <li><span class="v">v0.4</span> Undo/redo, select and move, text, polygons</li>
+      </ol>
+      <div class="project-body">
+        <h3>Paint</h3>
+        <p class="project-kicker">Java desktop image editor, in progress</p>
+        <p>My CS 250 term project, built one sprint at a time with a tagged release and notes for each. Undo and redo use two stacks of canvas snapshots per tab, and every shape, selection and text placement previews live while you drag, then lands as a single undo step.</p>
+        <p class="stack">Java, JavaFX, Maven, Git</p>
+        <p class="project-links"><a href="https://github.com/CamdenGoddard/Paint">Code</a><a href="https://github.com/CamdenGoddard/Paint/releases">Releases</a></p>
+      </div>
+    </article>
+  </section>
+
+  <section id="about" class="section about">
+    <h2 class="section-title">About</h2>
+    <div class="about-grid">
+      <img class="headshot" src="assets/headshot.jpg" alt="Camden Goddard" width="300" height="375" loading="lazy">
+      <div class="about-text">
+        <p>I'm from Gahanna, Ohio, and I'm a sophomore at Valparaiso University working toward a B.S. in Computer Science (May 2029). I've taken Algorithms &amp; Abstract Data, Object-Oriented Programming, Discrete Mathematics and AI Fundamentals.</p>
+        <p>Most weeks I run up to 80 miles with Valpo's cross country and track team, and I was captain of my high school cross country team. Training like that has taught me to plan my time and keep showing up, which is how I approach projects too.</p>
+        <p>I'm looking for a software engineering internship for summer 2027.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section contact">
+    <h2 class="section-title">Get in touch</h2>
+    <p><a class="contact-email" href="mailto:cgoddardoh@gmail.com">cgoddardoh@gmail.com</a></p>
+    <p class="contact-alt"><a href="https://www.linkedin.com/in/camgodd">LinkedIn</a><a href="https://github.com/CamdenGoddard">GitHub</a><a href="assets/Camden_Goddard_Resume.pdf">Resume (PDF)</a></p>
+  </section>
+
+</main>
+
+<footer class="footer">Built by Camden Goddard. <a href="https://github.com/CamdenGoddard/portfolio">Source on GitHub</a>.</footer>
+
+<script src="js/dots.js" defer></script>
+<script src="js/activity.js" defer></script>
+</body>
+</html>
