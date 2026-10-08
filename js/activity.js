@@ -4,7 +4,7 @@
 // unauthenticated rate limit (60 requests per hour per visitor).
 
 const USER = "CamdenGoddard";
-const SKIP = new Set(["portfolio"]);
+const SKIP = new Set(["CamGod", "portfolio"]); // this site itself
 const CACHE_KEY = "gh-activity-v1";
 const CACHE_MS = 10 * 60 * 1000;
 
