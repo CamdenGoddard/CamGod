@@ -3,5 +3,9 @@
   "compatibility_date": "2026-07-28",
   "assets": {
     "directory": "."
-  }
+  },
+  "routes": [
+    { "pattern": "camdengoddard.dev", "custom_domain": true },
+    { "pattern": "www.camdengoddard.dev", "custom_domain": true }
+  ]
 }
