@@ -1,7 +1,7 @@
 // latest commit from my public repos (cached 10 min for the rate limit)
 
 const USER = "CamdenGoddard";
-const SKIP = new Set(["portfolio"]);
+const SKIP = new Set(["CamGod", "portfolio"]);
 const CACHE_KEY = "gh-activity-v1";
 const CACHE_MS = 10 * 60 * 1000;
 
