@@ -2,7 +2,8 @@
 
 const USER = "CamdenGoddard";
 const SKIP = new Set(["CamGod", "portfolio"]);
-const CACHE_KEY = "gh-activity-v1";
+const CACHE_KEY = "gh-activity-v2";
+const CHORE = /readme|release[ _-]?notes|\.(md|txt)\b|typo|\bgif\b|add files via upload|^merge\b|^(update|create|delete|rename) \S+$/i;
 const CACHE_MS = 10 * 60 * 1000;
 
 const NAMES = {
@@ -41,9 +42,19 @@ async function latestCommit() {
   } catch (e) { /* storage unavailable */ }
 
   const repos = await getJson(`https://api.github.com/users/${USER}/repos?sort=pushed&per_page=10`);
-  const repo = repos.find((r) => !r.fork && !SKIP.has(r.name));
-  if (!repo) throw new Error("No public repos");
-  const [commit] = await getJson(`https://api.github.com/repos/${USER}/${repo.name}/commits?per_page=1`);
+  const candidates = repos.filter((r) => !r.fork && !SKIP.has(r.name)).slice(0, 3);
+  if (!candidates.length) throw new Error("No public repos");
+
+  // skip README/upload commits
+  let repo = candidates[0];
+  let commit = null;
+  for (const r of candidates) {
+    const commits = await getJson(`https://api.github.com/repos/${USER}/${r.name}/commits?per_page=15`);
+    const real = commits.find((c) => !CHORE.test(c.commit.message.split("\n")[0]));
+    if (real) { repo = r; commit = real; break; }
+    if (!commit && commits.length) commit = commits[0];
+  }
+  if (!commit) throw new Error("No commits");
 
   const data = {
     repo: repo.name,
