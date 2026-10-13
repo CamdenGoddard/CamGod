@@ -1,8 +1,8 @@
 // latest commit from my public repos (cached 10 min for the rate limit)
 
 const USER = "CamdenGoddard";
-const SKIP = new Set(["CamGod", "portfolio"]);
-const CACHE_KEY = "gh-activity-v2";
+const SKIP = new Set(["CamGod", "portfolio", "CamdenGoddard"]);
+const CACHE_KEY = "gh-activity-v3";
 const CHORE = /readme|release[ _-]?notes|\.(md|txt)\b|typo|\bgif\b|add files via upload|^merge\b|^(update|create|delete|rename) \S+$/i;
 const CACHE_MS = 10 * 60 * 1000;
 
